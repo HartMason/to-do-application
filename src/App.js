@@ -21,7 +21,7 @@ class App extends Component {
 
   handleClick = () => {
     this.state.isClicked
-      ? this.setState({ isClicked: false })
+      ? this.setState({ isClicked: false }) //setState is a built in function... when we call it this is how we update our state
       : this.setState({ isClicked: true });
   };
 
