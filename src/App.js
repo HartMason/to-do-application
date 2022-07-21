@@ -1,15 +1,16 @@
 import "./App.css";
 import React, { Component } from "react";
 import { render } from "@testing-library/react";
+import ToDoCard from "./TodoCard";
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props); //super(props) it calls the PARENT CLASS constructor
     this.state = {
       isClicked: false,
       todos: [],
       text: "",
-    };
+    }; // this.state represents the rendered values, ie. what's currently on the screen.
   }
 
   onChange = (e) => {
@@ -18,21 +19,56 @@ class App extends Component {
     });
   };
 
-  onClickHandler = () => {
-    console.log(this.state.todos);
-    this.setState({ text: this.state.todos }); //Not sure if this is correct
+  handleClick = () => {
+    this.state.isClicked
+      ? this.setState({ isClicked: false })
+      : this.setState({ isClicked: true });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({
+      todos: [...this.state.todos, this.state.text],
+    });
+    this.setState({ text: "" });
+  };
+
+  handleDelete = (e) => {
+    let list = this.state.todos;
+    list.splice(e, 1)
+    this.setState({
+      todos: [...list]
+    })
   };
 
   render() {
     return (
       <div>
         <h1>To Do's</h1>
-        <input value={this.state.text} onChange={this.onChange} />
-
-        <button onClick={this.onClickHandler}>Button</button>
+        {/* input is correct */}
+        <form onSubmit={this.handleSubmit}>
+          <input value={this.state.text} onChange={this.onChange} />
+          <button onClick={this.handleClick}>Button</button>
+        </form>
+        <ol>
+          {this.state.todos.map((todo, index) => {
+            return (
+              <ToDoCard
+                key={index}
+                index={index}
+                title={todo}
+                clickToRemove={this.handleDelete}
+              />
+            );
+          })}
+        </ol>
       </div>
     );
   }
 }
 
 export default App;
+
+//Questions for Jeff
+//1.) e.target.value?
+//2.)
