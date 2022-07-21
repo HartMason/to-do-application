@@ -35,9 +35,9 @@ class App extends Component {
 
   handleDelete = (e) => {
     let list = this.state.todos;
-    list.splice(e, 1)
-    this.setState({
-      todos: [...list]
+    list.splice(e, 1) //removes list todo
+    this.setState({   
+      todos: [...list] //resets list
     })
   };
 
