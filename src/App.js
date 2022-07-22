@@ -2,6 +2,8 @@ import "./App.css";
 import React, { Component } from "react";
 import { render } from "@testing-library/react";
 import ToDoCard from "./TodoCard";
+import BackGroundImage from "./BackGroundImage";
+
 
 class App extends Component {
   constructor(props) {
@@ -44,6 +46,7 @@ class App extends Component {
   render() {
     return (
       <div className="jsx">
+        <BackGroundImage/>
         <h1>To Do's</h1>
         {/* input is correct */}
         <form onSubmit={this.handleSubmit}>
