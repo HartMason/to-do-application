@@ -1,6 +1,7 @@
 import React from 'react'
 import BackGroundImage from './BackGroundImage.css'
 
+
 const backGroundImage = () => {
   return (
     <div>

@@ -46,7 +46,6 @@ class App extends Component {
   render() {
     return (
       <div className="jsx">
-        <BackGroundImage/>
         <h1>To Do's</h1>
         {/* input is correct */}
         <form onSubmit={this.handleSubmit}>
@@ -57,14 +56,15 @@ class App extends Component {
           {this.state.todos.map((todo, index) => {
             return (
               <ToDoCard
-                key={index}
-                index={index}
-                title={todo}
-                clickToRemove={this.handleDelete}
+              key={index}
+              index={index}
+              title={todo}
+              clickToRemove={this.handleDelete}
               />
-            );
-          })}
+              );
+            })}
         </ol>
+            <BackGroundImage/>
       </div>
     );
   }
