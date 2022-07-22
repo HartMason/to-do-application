@@ -43,12 +43,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="jsx">
         <h1>To Do's</h1>
         {/* input is correct */}
         <form onSubmit={this.handleSubmit}>
           <input value={this.state.text} onChange={this.onChange} />
-          <button onClick={this.handleClick}>Button</button>
+          <button className='submit'onClick={this.handleClick}>Submit</button>
         </form>
         <ol>
           {this.state.todos.map((todo, index) => {
