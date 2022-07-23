@@ -1,0 +1,11 @@
+.removeButton {
+  background-color: red;
+}
+
+.list {
+  margin-right: 10rem;
+}
+
+.todoContainer {
+  display: flex;
+}
