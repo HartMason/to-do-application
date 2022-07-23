@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { render } from "@testing-library/react";
 import ToDoCard from "./TodoCard";
 import BackGroundImage from "./BackGroundImage";
+import Motivation from "./Motivation";
 
 
 class App extends Component {
@@ -37,21 +38,23 @@ class App extends Component {
 
   handleDelete = (e) => {
     let list = this.state.todos;
-    list.splice(e, 1) //removes list todo
-    this.setState({   
-      todos: [...list] //resets list
-    })
+    list.splice(e, 1); //removes list todo
+    this.setState({
+      todos: [...list], //resets list
+    });
   };
 
   render() {
     return (
       <div>
-          <BackGroundImage/>
+        <BackGroundImage />
         <h1 className="title">To Do's</h1>
         {/* input is correct */}
-        <form  className="jsx" onSubmit={this.handleSubmit}>
+        <form className="jsx" onSubmit={this.handleSubmit}>
           <input value={this.state.text} onChange={this.onChange} />
-          <button className='submit'onClick={this.handleClick}>Submit</button>
+          <button className="submit" onClick={this.handleClick}>
+            Submit
+          </button>
         </form>
         <ol className="listedItems">
           {this.state.todos.map((todo, index) => {
@@ -64,7 +67,9 @@ class App extends Component {
               />
               );
             })}
+            <Motivation/>
         </ol>
+        
       </div>
     );
   }
