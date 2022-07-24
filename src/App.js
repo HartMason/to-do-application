@@ -5,7 +5,6 @@ import ToDoCard from "./TodoCard";
 import BackGroundImage from "./BackGroundImage";
 import Motivation from "./Motivation";
 
-
 class App extends Component {
   constructor(props) {
     super(props); //super(props) it calls the PARENT CLASS constructor
@@ -46,30 +45,29 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="parentContainer">
         <BackGroundImage />
-        <h1 className="title">To Do's</h1>
-        {/* input is correct */}
-        <form className="jsx" onSubmit={this.handleSubmit}>
-          <input value={this.state.text} onChange={this.onChange} />
-          <button className="submit" onClick={this.handleClick}>
-            Submit
-          </button>
-        </form>
-        <ol className="listedItems">
-          {this.state.todos.map((todo, index) => {
-            return (
-              <ToDoCard
-              key={index}
-              index={index}
-              title={todo}
-              clickToRemove={this.handleDelete}
-              />
+        <div>
+          <h1 className="title">To Do's</h1>
+          {/* input is correct */}
+          <form onSubmit={this.handleSubmit}>
+            <input value={this.state.text} onChange={this.onChange} />
+            <button onClick={this.handleClick}>Submit</button>
+          </form>
+          <ol>
+            {this.state.todos.map((todo, index) => {
+              return (
+                <ToDoCard
+                  key={index}
+                  index={index}
+                  title={todo}
+                  clickToRemove={this.handleDelete}
+                />
               );
             })}
-            <Motivation/>
-        </ol>
-        
+          </ol>
+        </div>
+        <Motivation />
       </div>
     );
   }

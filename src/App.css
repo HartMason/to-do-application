@@ -1,4 +1,4 @@
-.jsx {
+/* .jsx {
   align-items: center;
   text-align: center;
   position: absolute;
@@ -24,4 +24,8 @@
   left: 50%;
   margin: -135px 0 0 -125px;
  
+} */
+
+.parentContainer {
+  display: flex;
 }
