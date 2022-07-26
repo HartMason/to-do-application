@@ -29,3 +29,8 @@
 .parentContainer {
   display: flex;
 }
+
+.title {
+  margin-top: 200px;
+  margin-left: 150px;
+}

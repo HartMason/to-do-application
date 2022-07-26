@@ -47,8 +47,8 @@ class App extends Component {
     return (
       <div className="parentContainer">
         <BackGroundImage />
-        <div>
-          <h1 className="title">To Do's</h1>
+        <div  className="title">
+          <h1>To Do's</h1>
           {/* input is correct */}
           <form onSubmit={this.handleSubmit}>
             <input value={this.state.text} onChange={this.onChange} />
